@@ -23,16 +23,13 @@ spec:
             - name: index-html
               mountPath: /tmp/html
           terminationMessagePath: /dev/termination-log
-
       volumes:
         - name: index-html
           configMap:
             name: {{ .Chart.Name }}-html
             defaultMode: 420
-
       restartPolicy: Always
       terminationGracePeriodSeconds: 30
-
   strategy:
     type: RollingUpdate
     rollingUpdate:
